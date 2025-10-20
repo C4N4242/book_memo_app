@@ -1,0 +1,83 @@
+name: book_memo_app
+description: "A reading management and memo application built with Flutter."
+publish_to: "none"
+version: 0.1.0
+homepage: https://github.com/C4N4242/book_memo_app
+repository: https://github.com/C4N4242/book_memo_app
+issue_tracker: https://github.com/C4N4242/book_memo_app/issues
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 状態管理
+  provider: ^6.1.2
+
+  # データベース
+  sqflite: ^2.3.3+2
+  sqflite_common: ^2.5.4+4
+  sqflite_common_ffi: ^2.3.3
+  sqflite_common_ffi_web: ^0.4.2+2
+  path: ^1.9.0
+
+  # ユーティリティ
+  intl: ^0.19.0
+  uuid: ^4.5.1
+
+  # UI関連
+  flutter_rating_bar: ^4.0.1
+  cached_network_image: ^3.4.1
+
+  # 画像関連
+  image_picker: ^1.1.2
+  path_provider: ^2.1.4
+
+  # HTTP通信（Google Books API用）
+  http: ^1.2.2
+
+  # URL・共有関連
+  url_launcher: ^6.3.1
+  share_plus: ^10.1.2
+
+  # テーマ管理
+  dynamic_color: ^1.7.0
+  shared_preferences: ^2.3.3
+
+  # フォント
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon.png
+
+# アプリアイコン自動生成設定
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
+  remove_alpha_ios: true # iOS App Store対応
+  web:
+    generate: true
+    image_path: "assets/icon.png"
+    background_color: "#ffffff"
+    theme_color: "#2196F3"
+  windows:
+    generate: true
+    image_path: "assets/icon.png"
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: "assets/icon.png"
+  linux:
+    generate: true
+    image_path: "assets/icon.png"
