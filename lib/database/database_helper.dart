@@ -151,13 +151,13 @@ class DatabaseHelper {
     return await db.delete('books', where: 'id = ?', whereArgs: [id]);
   }
 
-  /// 書籍の検索（タイトル・著者名）
+  /// 書籍の検索（タイトル・著者名・出版社）
   Future<List<Book>> searchBooks(String query) async {
     final db = await database;
     final result = await db.query(
       'books',
-      where: 'title LIKE ? OR author LIKE ?',
-      whereArgs: ['%$query%', '%$query%'],
+      where: 'title LIKE ? OR author LIKE ? OR publisher LIKE ?',
+      whereArgs: ['%$query%', '%$query%', '%$query%'],
       orderBy: 'createdAt DESC',
     );
     return result.map((json) => Book.fromMap(json)).toList();
@@ -178,6 +178,30 @@ class DatabaseHelper {
     }
 
     return counts;
+  }
+
+  /// すべての出版社リストを取得（重複なし、アルファベット順）
+  Future<List<String>> getAllPublishers() async {
+    final db = await database;
+    final result = await db.rawQuery(
+      'SELECT DISTINCT publisher FROM books WHERE publisher IS NOT NULL AND publisher != "" ORDER BY publisher ASC',
+    );
+    return result
+        .map((row) => row['publisher'] as String)
+        .where((publisher) => publisher.isNotEmpty)
+        .toList();
+  }
+
+  /// 出版社別に書籍を取得
+  Future<List<Book>> getBooksByPublisher(String publisher) async {
+    final db = await database;
+    final result = await db.query(
+      'books',
+      where: 'publisher = ?',
+      whereArgs: [publisher],
+      orderBy: 'createdAt DESC',
+    );
+    return result.map((json) => Book.fromMap(json)).toList();
   }
 
   // ========== ページメモ関連のCRUD操作 ==========

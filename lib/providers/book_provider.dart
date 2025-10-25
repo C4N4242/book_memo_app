@@ -150,6 +150,52 @@ class BookProvider with ChangeNotifier {
     }
   }
 
+  /// すべての出版社リストを取得
+  Future<List<String>> getAllPublishers() async {
+    try {
+      return await _dbHelper.getAllPublishers();
+    } catch (e) {
+      debugPrint('出版社リストの取得に失敗: $e');
+      return [];
+    }
+  }
+
+  /// 出版社別に書籍を読み込む
+  Future<void> loadBooksByPublisher(String publisher) async {
+    _isLoading = true;
+    _error = null;
+    notifyListeners();
+
+    try {
+      _books = await _dbHelper.getBooksByPublisher(publisher);
+    } catch (e) {
+      _error = 'データの読み込みに失敗しました: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  /// ステータスと出版社の両方で絞り込み
+  Future<void> filterByStatusAndPublisher(
+    BookStatus status,
+    String publisher,
+  ) async {
+    _isLoading = true;
+    _error = null;
+    notifyListeners();
+
+    try {
+      final allBooks = await _dbHelper.getBooksByStatus(status);
+      _books = allBooks.where((book) => book.publisher == publisher).toList();
+    } catch (e) {
+      _error = 'データの読み込みに失敗しました: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
   /// ステータス別の書籍数を取得
   int getCountByStatus(BookStatus status) {
     return _statusCounts[status] ?? 0;

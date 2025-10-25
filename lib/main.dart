@@ -8,6 +8,7 @@ import 'providers/memo_provider.dart';
 import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/books_by_status_screen.dart';
+import 'screens/search_screen.dart';
 
 // デスクトップ用のインポート(Web以外のみ)
 import 'database_init_stub.dart'
@@ -133,6 +134,10 @@ class BookMemoApp extends StatelessWidget {
                       final status = settings.arguments as BookStatus;
                       return MaterialPageRoute(
                         builder: (_) => BooksByStatusScreen(status: status),
+                      );
+                    case '/search':
+                      return MaterialPageRoute(
+                        builder: (_) => const SearchScreen(),
                       );
                     default:
                       return null;
