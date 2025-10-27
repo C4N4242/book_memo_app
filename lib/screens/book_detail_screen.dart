@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/book.dart';
 import '../models/page_memo.dart';
 import '../providers/book_provider.dart';
 import '../providers/memo_provider.dart';
+import '../widgets/sns_share_dialog.dart';
 import 'add_book_screen.dart';
 import 'add_memo_screen.dart';
 
@@ -559,15 +559,26 @@ class _BookDetailScreenState extends State<BookDetailScreen>
     }
     if (_currentBook.purchaseUrl != null &&
         _currentBook.purchaseUrl!.isNotEmpty) {
-      text.writeln('\n${_currentBook.purchaseUrl}');
+      text.writeln('\n購入先: ${_currentBook.purchaseUrl}');
     }
 
-    Share.share(text.toString());
+    // SNS共有ダイアログを表示
+    showDialog(
+      context: context,
+      builder: (context) =>
+          SnsShareDialog(text: text.toString(), url: _currentBook.purchaseUrl),
+    );
   }
 
   void _shareMemo(PageMemo memo) {
     final text = memo.generateShareText(_currentBook.title);
-    Share.share(text);
+
+    // SNS共有ダイアログを表示
+    showDialog(
+      context: context,
+      builder: (context) =>
+          SnsShareDialog(text: text, url: _currentBook.purchaseUrl),
+    );
   }
 
   Future<void> _launchUrl(String urlString) async {
