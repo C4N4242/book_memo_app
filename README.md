@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Flutter](https://img.shields.io/badge/Flutter-3.9.2+-02569B?logo=flutter)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Windows-blue)]()
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Web%20%7C%20Windows-blue)]()
 
 English | [日本語](README_ja.md)
 
@@ -149,7 +149,7 @@ dart run flutter_launcher_icons
 
 - Flutter SDK 3.9.2 or higher
 - Dart SDK 3.9.2 or higher
-- Supported Platforms: Android / iOS / Windows / macOS / Linux / Web
+- Supported Platforms: Android / Web / Windows
 
 ### Platform-Specific Requirements
 
@@ -211,7 +211,7 @@ This project is a practical sample app for Flutter beginners. You can learn:
 - ✅ **Drawer Menu**: Side menu implementation
 - ✅ **External Integration**: URL launching and SNS sharing
 - ✅ **Responsive Design**: Tablet and landscape support
-- ✅ **Multi-Platform**: Android/iOS/Windows/Web support
+- ✅ **Multi-Platform**: Android/Windows/Web support
 - ✅ **Material Design 3**: Latest design system
 - ✅ **Custom Gestures**: Touch operation optimization
 

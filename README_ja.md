@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Flutter](https://img.shields.io/badge/Flutter-3.9.2+-02569B?logo=flutter)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Windows-blue)]()
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Web%20%7C%20Windows-blue)]()
 
 [English](README.md) | 日本語
 
@@ -149,7 +149,7 @@ dart run flutter_launcher_icons
 
 - Flutter SDK 3.9.2以上
 - Dart SDK 3.9.2以上
-- 対応プラットフォーム: Android / iOS / Windows / macOS / Linux / Web
+- 対応プラットフォーム: Android / Web / Windows
 
 ### プラットフォーム固有の要件
 
@@ -211,7 +211,7 @@ dart run flutter_launcher_icons
 - ✅ **Drawerメニュー**: サイドメニューの実装
 - ✅ **外部連携**: URL起動とSNS共有
 - ✅ **レスポンシブデザイン**: タブレット・横向き対応
-- ✅ **マルチプラットフォーム**: Android/iOS/Windows/Web対応
+- ✅ **マルチプラットフォーム**: Android/Windows/Web対応
 - ✅ **Material Design 3**: 最新のデザインシステム
 - ✅ **カスタムジェスチャー**: タッチ操作の最適化
 
